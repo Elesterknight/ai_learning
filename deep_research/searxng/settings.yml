@@ -1,0 +1,72 @@
+# see https://docs.searxng.org/admin/settings/settings.html#settings-use-default-settings
+use_default_settings: true
+
+engines:
+  # 啟用預設禁用的引擎
+  - name: bing
+    disabled: false
+
+  - name: 360search
+    engine: 360search
+    shortcut: 360so
+    disabled: false
+  
+  - name: baidu
+    engine: baidu
+    shortcut: baidu
+    disabled: false
+  
+  - name: iqiyi
+    engine: iqiyi
+    shortcut: iq
+    disabled: false
+
+  - name: acfun
+    engine: acfun
+    shortcut: acf
+    disabled: false
+
+
+  # 禁用預設啟用的引擎
+  - name: arch linux wiki
+    engine: archlinux
+    disabled: true
+  - name: duckduckgo
+    engine: duckduckgo
+    distabled: true
+  - name: github
+    engine: github
+    shortcut: gh
+    disabled: true
+  - name: wikipedia
+    engine: wikipedia
+    disabled: true
+    
+
+server:
+  # base_url is defined in the SEARXNG_BASE_URL environment variable, see .env and docker-compose.yml
+  secret_key: "888"  # change this!
+  limiter: false  # can be disabled for a private instance
+  image_proxy: true
+ui:
+  static_use_hash: true
+redis:
+  url: redis://redis:6379/0
+
+search:
+  safe_search: 0
+  autocomplete: ""
+  default_lang: ""
+  formats:
+    - html
+    - json
+    - csv
+    - rss
+ratelimit:
+    enabled: true
+    # 調整每秒允許的請求數
+    per_second: 5  
+    # 調整每分鐘允許的請求數
+    per_minute: 60
+
+
